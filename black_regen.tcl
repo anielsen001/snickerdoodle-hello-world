@@ -154,19 +154,19 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 # Set 'sources_1' fileset object
 set obj [get_filesets sources_1]
 # Import local files from the original project
-set files [list \
- [file normalize "${origin_dir}/snickerdoodle_GPIO/snickerdoodle_GPIO.srcs/sources_1/bd/base_block_design/base_block_design.bd" ]\
- [file normalize "${origin_dir}/snickerdoodle_GPIO/snickerdoodle_GPIO.srcs/sources_1/imports/hdl/base_block_design_wrapper.v"]\
-]
-set imported_files [import_files -fileset sources_1 $files]
+#set files [list \
+# [file normalize "${origin_dir}/snickerdoodle_GPIO/snickerdoodle_GPIO.srcs/sources_1/bd/base_block_design/base_block_design.bd" ]\
+# [file normalize "${origin_dir}/snickerdoodle_GPIO/snickerdoodle_GPIO.srcs/sources_1/imports/hdl/base_block_design_wrapper.v"]\
+#]
+#set imported_files [import_files -fileset sources_1 $files]
 
 # Set 'sources_1' fileset file properties for remote files
 # None
 
 # Set 'sources_1' fileset file properties for local files
-set file "base_block_design/base_block_design.bd"
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "registered_with_manager" -value "1" -objects $file_obj
+#set file "base_block_design/base_block_design.bd"
+#set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+#set_property -name "registered_with_manager" -value "1" -objects $file_obj
 
 
 # Set 'sources_1' fileset properties
