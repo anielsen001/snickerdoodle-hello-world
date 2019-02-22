@@ -151,6 +151,9 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
   create_fileset -srcset sources_1
 }
 
+# Rebuild user ip_repo's index before adding any source files
+update_ip_catalog -rebuild
+
 # Set 'sources_1' fileset object
 #set obj [get_filesets sources_1]
 # Import local files from the original project
