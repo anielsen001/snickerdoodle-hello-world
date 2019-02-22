@@ -152,7 +152,7 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 }
 
 # Set 'sources_1' fileset object
-set obj [get_filesets sources_1]
+#set obj [get_filesets sources_1]
 # Import local files from the original project
 #set files [list \
 # [file normalize "${origin_dir}/snickerdoodle_GPIO/snickerdoodle_GPIO.srcs/sources_1/bd/base_block_design/base_block_design.bd" ]\
@@ -445,5 +445,12 @@ set_property -name "steps.write_bitstream.args.verbose" -value "0" -objects $obj
 
 # set the current impl run
 current_run -implementation [get_runs impl_1]
+
+# create the block design 
+source $origin_dir/base_block_design.tcl
+
+# generate the wrapper
+set design_name [get_bd_designs]
+make_wrapper -files [get_files $design_name.bd] -top -import
 
 puts "INFO: Project created:${_xil_proj_name_}"
